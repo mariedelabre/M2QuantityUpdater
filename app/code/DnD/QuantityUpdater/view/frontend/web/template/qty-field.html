@@ -1,0 +1,24 @@
+<label class="label" data-bind="attr: { for: uniqueId() }">
+    <span data-bind="i18n: 'Quantity'"></span>
+</label>
+
+<div class="control">
+    <!-- ko if: !checkDefaultQty() -->
+    <button type="button" class="qty-upd-btn decrease" data-bind="click: decreaseQty">
+        <span data-bind="i18n: '- Remove quantity'"></span>
+    </button>
+    <!-- /ko -->
+    <input data-bind="value: qty(), attr: { title: 'Quantity', id: uniqueId(), name: name(), 'data-cart-item-id': dataId() }"
+           type="number"
+           maxlength="4"
+           class="input-text qty"
+           data-validate="{required:true,'validate-greater-than-zero':true}"
+           data-role="cart-item-qty"
+           aria-live="polite"
+           aria-atomic="true"
+           readonly
+    />
+    <button type="button" class="qty-upd-btn increase" data-bind="click: increaseQty">
+        <span data-bind="i18n: '+ Add quantity'"></span>
+    </button>
+</div>

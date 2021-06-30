@@ -1,0 +1,101 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    // Quantity box styling
+    .field.qty {
+        .lib-vendor-box-align(center);
+        .lib-vendor-prefix-display(flex);
+        min-width: 9.1rem;
+
+        // Qty label styling
+        .label {
+            font-weight: @font-weight__bold;
+            margin: 0 1.5rem 0 0;
+
+            // styling on minicart
+            .block-minicart & {
+                font-weight: @font-weight__regular;
+                margin-right: .5rem;
+
+                &:after {
+                    content: ":";
+                    display: inline-block;
+                }
+            }
+        }
+
+        // Qty buttons styling
+        .qty-upd-btn {
+            // Set a wide clickable area to prevent users from missclicking
+            .lib-button-reset();
+            height: 3.7rem;
+            padding: 0 .5rem;
+            overflow: hidden;
+
+            &:before {
+                .lib-font-size(27);
+                .lib-line-height(37);
+                content: "+";
+                display: block;
+                font-weight: @font-weight__extralight;
+            }
+
+            &.decrease {
+                &:before {
+                    content: "_";
+                    margin-top: -2.5rem;
+                }
+            }
+
+            span {
+                // Hide button strings that are useful for screen readers
+                .lib-visually-hidden();
+            }
+
+            &:focus-visible {
+                // Keyboard navigation styling
+                .lib-css(box-shadow, @focus__box-shadow);
+            }
+        }
+
+        // Qty input styling
+        .input-text.qty {
+            .lib-font-size(12);
+            border: .1rem solid @color-black;
+            border-radius: 50%;
+            font-weight: @font-weight__semibold;
+            padding: 0;
+            text-align: center;
+            height: 3.7rem;
+            width: 100%;
+            max-width: 3.7rem;
+
+            // styling on minicart
+            .block-minicart & {
+                border: 0;
+                font-weight: @font-weight__regular;
+                padding: 0;
+                text-align: left;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+
+        // Styling on cart page
+        .cart-container & {
+            display: inline-block;
+        }
+    }
+
+    // Hide update shopping cart button
+    .cart.main.actions {
+        .action.update {
+            display: none;
+        }
+    }
+}
